@@ -13,7 +13,8 @@ class DeleteItem extends React.Component {
             {this.props.items.map((i) => (
               <tr key={i.id} className="card">
                 <td>{i.task}</td>
-                <button onClick={() => this.props.deleteItems(i.id)}>X</button>
+                <button onClick={() => this.props.deleteItems(i.id)}>Delete</button>
+                <button onClick={() => this.props.findItems(i.id)}>Edit</button>
               </tr>
             ))}
           </tbody>
@@ -26,6 +27,8 @@ class DeleteItem extends React.Component {
 DeleteItem.propTypes = {
   items: PropTypes.array,
   deleteItems: PropTypes.func,
+  findItems:PropTypes.func,
+ 
 };
 
 export default DeleteItem;
