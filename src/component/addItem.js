@@ -28,18 +28,6 @@ class AddItem extends React.Component {
     const { task } = this.state;
     return (
       <div>
-        <table className="content-table">
-          <tbody>
-            <tr>
-              <th>All Tasks</th>
-            </tr>
-            {this.props.items.map((i) => (
-              <tr key={i.id} className="card">
-                <td>{i.task}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -56,7 +44,7 @@ class AddItem extends React.Component {
 }
 
 AddItem.propTypes = {
-  items: PropTypes.array,
   addItems: PropTypes.func,
+
 };
 export default AddItem;

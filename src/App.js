@@ -14,17 +14,23 @@ class App extends React.Component {
 
   addItems = (item) => {
     item.id = Math.random();
-    const items = this.state.items;
+    const items = [...this.state.items];
     items.push(item);
     this.setState({ items });
+  };
+
+  deleteItems = (id) => {
+    const items = [...this.state.items];
+    const D = items.filter((item) => item.id !== id);
+    this.setState({ items: D });
   };
 
   render() {
     return (
       <div className="App">
         <h1>Hi Khamis</h1>
-        <AddItem items={this.state.items} addItems={this.addItems} />
-        <DeleteItem />
+        <DeleteItem items={this.state.items} deleteItems={this.deleteItems} />
+        <AddItem addItems={this.addItems} />
       </div>
     );
   }
